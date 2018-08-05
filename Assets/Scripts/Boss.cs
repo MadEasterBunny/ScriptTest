@@ -6,6 +6,7 @@ public class Boss : MonoBehaviour {
     private int hp = 100;
     private int power = 25;
     private int mp = 53;
+    private int call = 0;
 
     public void Attack()
     {
@@ -35,6 +36,8 @@ public class Boss : MonoBehaviour {
         }
     }
 
+    
+
 	// Use this for initialization
 	void Start ()
     {
@@ -42,11 +45,15 @@ public class Boss : MonoBehaviour {
 
         lastboss.Attack();
         lastboss.Defense(3);
-        lastboss.Magic();
+        for(call = 0; call <= 9; call++)
+        {
+            lastboss.Magic();
+        }
+        //lastboss.Magic();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+       
+    }
 }
