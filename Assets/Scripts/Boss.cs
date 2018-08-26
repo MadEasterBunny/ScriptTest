@@ -6,7 +6,7 @@ public class Boss : MonoBehaviour {
     private int hp = 100;
     private int power = 25;
     private int mp = 53;
-    private int call = 0;
+    private int cost = 5;
 
     public void Attack()
     {
@@ -22,17 +22,15 @@ public class Boss : MonoBehaviour {
 
     public void Magic()
     {
-        for (int i = mp; i >= 0; i -= 5)
+        
+        if (mp >= 5)
         {
-            //this.mp -= magic;
-            if (i >= 5)
-            {
-                Debug.Log("魔法攻撃をした。残りMPは" + i + "。"); 
-            }
-            else
-            {
-                Debug.Log("MPが足りないため魔法が使えない");
-            }
+            this.mp -= cost;
+            Debug.Log("魔法攻撃をした。残りMPは" + mp + "。");
+        }
+        else
+        {
+            Debug.Log("MPが足りないため魔法が使えない");
         }
     }
 
@@ -45,7 +43,7 @@ public class Boss : MonoBehaviour {
 
         lastboss.Attack();
         lastboss.Defense(3);
-        for(call = 0; call <= 9; call++)
+        for(int i = 0; i <= 10; i++)
         {
             lastboss.Magic();
         }
